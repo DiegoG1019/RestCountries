@@ -7,7 +7,7 @@ using System.Text.Json.Serialization;
 
 namespace RestCountries
 {
-    internal class Country
+    internal class Country : ICountry
     {
         [JsonPropertyName("name")]
         public string Name { get; set; }
@@ -119,5 +119,12 @@ namespace RestCountries
 
         [JsonPropertyName("cioc")]
         public string CIOC { get; set; }
+
+        IEnumerable<string> ICountry.TopLevelDomains => TopLevelDomains;
+        IEnumerable<string> ICountry.CallingCodes => CallingCodes;
+        IEnumerable<string> ICountry.AlternativeSpellings => AlternativeSpellings;
+        IEnumerable<Countries> ICountry.Borders => Borders;
+        IEnumerable<ICurrencyInfo> ICountry.Currencies => Currencies;
+        IEnumerable<ILanguageInfo> ICountry.Languages => Languages;
     }
 }
