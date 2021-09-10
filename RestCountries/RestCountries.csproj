@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Countries.xaml" />
+    <None Remove="Country.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Include="Countries.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Country.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+
+</Project>
