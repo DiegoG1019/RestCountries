@@ -5,7 +5,7 @@ using System.Text.Json.Serialization;
 
 namespace RestCountries
 {
-    internal class CurrencyInfo
+    internal class CurrencyInfo : ICurrencyInfo
     {
         [JsonPropertyName("code")]
         public string Code { get; set; }
