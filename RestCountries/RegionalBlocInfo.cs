@@ -5,10 +5,10 @@ using System.Text.Json.Serialization;
 
 namespace RestCountries
 {
-    internal class RegionalBlock
+    internal class RegionalBlocInfo : IRegionalBlocInfo
     {
         [JsonPropertyName("acronym")]
-        public string Acronym { get; set; }
+        public RegionalBloc Acronym { get; set; }
 
         [JsonPropertyName("name")]
         public string Name { get; set; }
@@ -18,5 +18,8 @@ namespace RestCountries
 
         [JsonPropertyName("otherNames")]
         public List<string> OtherNames { get; set; }
+
+        IEnumerable<string> IRegionalBlocInfo.OtherAcronyms => OtherAcronyms;
+        IEnumerable<string> IRegionalBlocInfo.OtherNames => OtherNames;
     }
 }
