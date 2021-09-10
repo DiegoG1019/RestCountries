@@ -9,25 +9,70 @@ namespace RestCountries
     [Serializable, JsonConverter(typeof(JsonStringEnumConverter))]
     public enum SubRegion
     {
+        [EnumMember(Value = "Southern Asia")]
+        SouthernAsia,
+
         [EnumMember(Value = "Northern Europe")]
-        NorthEurope,
+        NorthernEurope,
 
         [EnumMember(Value = "Southern Europe")]
-        SouthEurope,
-
-        [EnumMember(Value = "Southern Asia")]
-        SouthAsia,
+        SouthernEurope,
 
         [EnumMember(Value = "Northern Africa")]
-        NorthAfrica,
-
-        [EnumMember(Value = "Middle Africa")]
-        MiddleAfrica,
+        NorthernAfrica,
 
         [EnumMember(Value = "Polynesia")]
         Polynesia,
 
+        [EnumMember(Value = "Middle Africa")]
+        MiddleAfrica,
+
         [EnumMember(Value = "Caribbean")]
-        Caribbean
+        Caribbean,
+
+        [EnumMember(Value = "South America")]
+        SouthAmerica,
+
+        [EnumMember(Value = "Western Asia")]
+        WesternAsia,
+
+        [EnumMember(Value = "Australia and New Zealand")]
+        AustraliaAndNewZealand,
+
+        [EnumMember(Value = "Western Europe")]
+        WesternEurope,
+
+        [EnumMember(Value = "Eastern Europe")]
+        EasternEurope,
+
+        [EnumMember(Value = "Central America")]
+        CentralAmerica,
+
+        [EnumMember(Value = "Western Africa")]
+        WesternAfrica,
+
+        [EnumMember(Value = "Northern America")]
+        NorthernAmerica,
+
+        [EnumMember(Value = "Southern Africa")]
+        SouthernAfrica,
+
+        [EnumMember(Value = "Eastern Africa")]
+        EasternAfrica,
+
+        [EnumMember(Value = "South-Eastern Asia")]
+        SouthEasternAsia,
+
+        [EnumMember(Value = "Eastern Asia")]
+        EasternAsia,
+
+        [EnumMember(Value = "Melanesia")]
+        Melanesia,
+
+        [EnumMember(Value = "Micronesia")]
+        Micronesia,
+
+        [EnumMember(Value = "Central Asia")]
+        CentralAsia
     }
 }
