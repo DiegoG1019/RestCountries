@@ -5,7 +5,7 @@ using System.Text.Json.Serialization;
 
 namespace RestCountries
 {
-    internal class LanguageInfo
+    internal class LanguageInfo : ILanguageInfo
     {
         [JsonPropertyName("iso639_1")]
         public string ISO639_1 { get; set; }
