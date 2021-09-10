@@ -4,6 +4,7 @@ using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Linq;
 
 namespace RestCountries
 {
@@ -22,8 +23,11 @@ namespace RestCountries
         public async Task<ICountryInfo?> GetCountryAsync(Country country, CancellationToken ct = default) 
             => await Http.GetFromJsonAsync<CountryInfo>($"/rest/v2/alpha/{country}", ct);
 
-        public async Task<IEnumerable<ICountryInfo>?> GetCountriesAsync(IEnumerable<Country> countries, CancellationToken ct = default)
-            => await Http.GetFromJsonAsync<CountryInfo[]>($"/rest/v2/alpha?codes={string.Join(';', countries)}", ct);
+        public async Task<IEnumerable<ICountryInfo>?> GetCountriesAsync(CancellationToken ct, Country country, params Country[] countries)
+            => await Http.GetFromJsonAsync<CountryInfo[]>($"/rest/v2/alpha?codes={string.Join(';', countries.Append(country))}", ct);
+
+        public Task<IEnumerable<ICountryInfo>?> GetCountriesAsync(Country country, params Country[] countries)
+            => GetCountriesAsync(default, country, countries);
 
         public async Task<IEnumerable<ICountryInfo>?> SearchByCurrencyAsync(CancellationToken ct = default)
             => throw new NotImplementedException();
