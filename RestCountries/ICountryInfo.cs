@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace RestCountries
 {
-    public interface ICountry
+    public interface ICountryInfo
     {
         public string Name { get; }
 
@@ -18,6 +18,8 @@ namespace RestCountries
         public string CapitalCity { get; }
 
         public IEnumerable<string> AlternativeSpellings { get; }
+
+        public IEnumerable<IRegionalBlocInfo> RegionalBlocs { get; }
 
         public Region Region { get; }
 
@@ -37,7 +39,7 @@ namespace RestCountries
         public double Gini { get; }
         public IEnumerable<TimeZoneInfo> TimeZones { get; }
 
-        public IEnumerable<Countries> Borders { get; }
+        public IEnumerable<Country> Borders { get; }
 
         public string NativeName { get; }
 
@@ -48,7 +50,7 @@ namespace RestCountries
 
         public IEnumerable<ILanguageInfo> Languages { get; }
 
-        public Dictionary<string, string> Translations { get; }
+        public IReadOnlyDictionary<string, string> Translations { get; }
 
         public string FlagUriString { get; }
 
