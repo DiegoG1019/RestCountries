@@ -23,5 +23,8 @@ namespace RestCountries
 
         [EnumMember(Value = "Americas")]
         Americas,
+
+        [EnumMember(Value = "Polar")]
+        Polar
     }
 }
