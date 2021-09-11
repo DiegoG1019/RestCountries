@@ -4,12 +4,13 @@
     <TargetFramework>netstandard2.1</TargetFramework>
     <Nullable>enable</Nullable>
     <Authors>Diego Garcia</Authors>
-    <Description>A Client Library for [https://github.com/apilayer/restcountries] To be used to obtain info about countries and regions</Description>
+    <Description>A Client Library for [https://github.com/apilayer/restcountries] To be used to obtain info about countries and regions. Offers several enums for strongly typed development. Find TimeZone, Regional Data, Languages, Name Translations and other data</Description>
     <Copyright>Diego Garcia, 2021</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/DiegoG1019/RestCountries</PackageProjectUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <Version>1.0.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
