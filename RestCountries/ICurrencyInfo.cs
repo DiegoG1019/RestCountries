@@ -2,10 +2,10 @@
 {
     public interface ICurrencyInfo
     {
-        public string Code { get; }
+        public string? Code { get; }
 
         public string Name { get; }
 
-        public string Symbol { get; }
+        public string? Symbol { get; }
     }
 }

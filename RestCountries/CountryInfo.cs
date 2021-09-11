@@ -33,13 +33,37 @@ namespace RestCountries
         [JsonPropertyName("regionalBlocs")]
         public List<RegionalBlocInfo> RegionalBlocs { get; set; }
 
+        private Region? reg__;
+        [JsonIgnore]
+        public Region Region
+        {
+            get
+            {
+                if (reg__ is null)
+                    reg__ = Enum.Parse<Region>(region__, true);
+                return (Region)reg__;
+            }
+        }
+
         [JsonPropertyName("region")]
-        public Region Region { get; set; }
+        public string region__ { get; set; }
+
+        private SubRegion? subr__;
+        [JsonIgnore]
+        public SubRegion SubRegion
+        { 
+            get
+            {
+                if (subr__ is null)
+                    subr__ = subregion__.GetSubRegion();
+                return (SubRegion)subr__;
+            } 
+        }
 
         [JsonPropertyName("subregion")]
-        public SubRegion SubRegion { get; set; }
+        public string subregion__ { get; set; }
 
-        [JsonPropertyName("alpha2Code")]
+        [JsonPropertyName("population")]
         public long Population { get; set; }
 
         [JsonPropertyName("latlng")]
@@ -54,15 +78,16 @@ namespace RestCountries
         /// Represented in SquareKilometers
         /// </summary>
         [JsonPropertyName("area")]
-        public double Area { get; set; }
+        public double? Area { get; set; }
 
         [JsonPropertyName("gini")]
-        public double Gini { get; set; }
+        public double? Gini { get; set; }
 
         [JsonPropertyName("timezones")]
         public string[]? TimeZones_ { get; set; }
 
         private List<TimeZoneInfo>? Tz;
+        [JsonIgnore]
         public IEnumerable<TimeZoneInfo> TimeZones
         {
             get
@@ -78,7 +103,23 @@ namespace RestCountries
         }
 
         [JsonPropertyName("borders")]
-        public List<Country> Borders { get; set; }
+        public List<string> borders__ { get; set; }
+
+        private List<Country>? bord__;
+        [JsonIgnore]
+        public List<Country> Borders
+        {
+            get
+            {
+                if(bord__ is null)
+                {
+                    bord__ = new List<Country>(borders__.Count);
+                    foreach (string c in borders__)
+                        bord__.Add(Enum.Parse<Country>(c, true));
+                }
+                return bord__;
+            }
+        }
 
         [JsonPropertyName("nativeName")]
         public string NativeName { get; set; }
@@ -87,6 +128,7 @@ namespace RestCountries
         public string NumericCodeString { get; set; }
 
         private int? NC_;
+        [JsonIgnore]
         public int NumericCode
         {
             get
@@ -104,12 +146,13 @@ namespace RestCountries
         public List<LanguageInfo> Languages { get; set; }
 
         [JsonPropertyName("translations")]
-        public Dictionary<string, string> Translations { get; set; }
+        public Dictionary<string, string?> Translations { get; set; }
 
-        [JsonPropertyName("translations")]
+        [JsonPropertyName("flag")]
         public string FlagUriString { get; set; }
 
         private Uri? FlagUri__;
+        [JsonIgnore]
         public Uri FlagUri
         {
             get
@@ -121,15 +164,15 @@ namespace RestCountries
         }
 
         [JsonPropertyName("cioc")]
-        public string CIOC { get; set; }
+        public string? CIOC { get; set; }
 
-        IEnumerable<string> ICountryInfo.TopLevelDomains => TopLevelDomains;
-        IEnumerable<string> ICountryInfo.CallingCodes => CallingCodes;
-        IEnumerable<string> ICountryInfo.AlternativeSpellings => AlternativeSpellings;
-        IEnumerable<Country> ICountryInfo.Borders => Borders;
-        IEnumerable<ICurrencyInfo> ICountryInfo.Currencies => Currencies;
-        IEnumerable<ILanguageInfo> ICountryInfo.Languages => Languages;
-        IReadOnlyDictionary<string, string> ICountryInfo.Translations => Translations;
-        IEnumerable<IRegionalBlocInfo> ICountryInfo.RegionalBlocs => RegionalBlocs;
+        [JsonIgnore] IEnumerable<string> ICountryInfo.TopLevelDomains => TopLevelDomains;
+        [JsonIgnore] IEnumerable<string> ICountryInfo.CallingCodes => CallingCodes;
+        [JsonIgnore] IEnumerable<string> ICountryInfo.AlternativeSpellings => AlternativeSpellings;
+        [JsonIgnore] IEnumerable<Country> ICountryInfo.Borders => Borders;
+        [JsonIgnore] IEnumerable<ICurrencyInfo> ICountryInfo.Currencies => Currencies;
+        [JsonIgnore] IEnumerable<ILanguageInfo> ICountryInfo.Languages => Languages;
+        [JsonIgnore] IReadOnlyDictionary<string, string?> ICountryInfo.Translations => Translations;
+        [JsonIgnore] IEnumerable<IRegionalBlocInfo> ICountryInfo.RegionalBlocs => RegionalBlocs;
     }
 }

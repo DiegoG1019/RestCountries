@@ -8,7 +8,19 @@ namespace RestCountries
     internal class RegionalBlocInfo : IRegionalBlocInfo
     {
         [JsonPropertyName("acronym")]
-        public RegionalBloc Acronym { get; set; }
+        public string _acronym { get; set; }
+
+        private RegionalBloc? acronymField_;
+        [JsonIgnore]
+        public RegionalBloc Acronym
+        {
+            get
+            {
+                if (acronymField_ is null)
+                    acronymField_ = _acronym.GetRegionalBloc();
+                return (RegionalBloc)acronymField_;
+            }
+        }
 
         [JsonPropertyName("name")]
         public string Name { get; set; }

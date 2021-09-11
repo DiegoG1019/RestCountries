@@ -34,9 +34,9 @@ namespace RestCountries
         /// <summary>
         /// Represented in SquareKilometers
         /// </summary>
-        public double Area { get; }
+        public double? Area { get; }
 
-        public double Gini { get; }
+        public double? Gini { get; }
         public IEnumerable<TimeZoneInfo> TimeZones { get; }
 
         public IEnumerable<Country> Borders { get; }
@@ -50,12 +50,12 @@ namespace RestCountries
 
         public IEnumerable<ILanguageInfo> Languages { get; }
 
-        public IReadOnlyDictionary<string, string> Translations { get; }
+        public IReadOnlyDictionary<string, string?> Translations { get; }
 
         public string FlagUriString { get; }
 
         public Uri FlagUri { get; }
 
-        public string CIOC { get; }
+        public string? CIOC { get; }
     }
 }
