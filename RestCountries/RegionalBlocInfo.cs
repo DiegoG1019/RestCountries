@@ -17,7 +17,7 @@ namespace RestCountries
             get
             {
                 if (acronymField_ is null)
-                    acronymField_ = _acronym.GetRegionalBloc();
+                    acronymField_ = Enum.Parse<RegionalBloc>(_acronym);
                 return (RegionalBloc)acronymField_;
             }
         }

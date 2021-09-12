@@ -9,43 +9,82 @@ namespace RestCountries
     [Serializable, JsonConverter(typeof(JsonStringEnumConverter))]
     public enum RegionalBloc
     {
-        [EnumMember(Value = "EU")]
+        /// <summary>
+        /// European Union
+        /// </summary>
+        [EnumMember(Value = "European Union")]
         EU,
 
-        [EnumMember(Value = "EFTA")]
+        /// <summary>
+        /// European Free Trade Association
+        /// </summary>
+        [EnumMember(Value = "European Free Trade Association")]
         EFTA,
 
-        [EnumMember(Value = "CARICOM")]
+        /// <summary>
+        /// Caribbean Community
+        /// </summary>
+        [EnumMember(Value = "Caribbean Community")]
         CARICOM,
 
-        [EnumMember(Value = "PA")]
+        /// <summary>
+        /// Pacific Alliance
+        /// </summary>
+        [EnumMember(Value = "Pacific Alliance")]
         PA,
 
-        [EnumMember(Value = "AU")]
+        /// <summary>
+        /// African Union
+        /// </summary>
+        [EnumMember(Value = "African Union")]
         AU,
 
-        [EnumMember(Value = "USAN")]
+        /// <summary>
+        /// Union of South American Nations
+        /// </summary>
+        [EnumMember(Value = "Union of South American Nations")]
         USAN,
 
-        [EnumMember(Value = "EEU")]
+        /// <summary>
+        /// Eurasian Economic Union
+        /// </summary>
+        [EnumMember(Value = "Eurasian Economic Union")]
         EEU,
 
-        [EnumMember(Value = "AL")]
+        /// <summary>
+        /// Arab League
+        /// </summary>
+        [EnumMember(Value = "Arab League")]
         AL,
 
-        [EnumMember(Value = "ASEAN")]
+        /// <summary>
+        /// Association of Southeast Asian Nations
+        /// </summary>
+        [EnumMember(Value = "Association of Southeast Asian Nations")]
         ASEAN,
 
-        [EnumMember(Value = "CAIS")]
+        /// <summary>
+        /// Central American Integration System
+        /// </summary>
+        [EnumMember(Value = "Central American Integration System")]
         CAIS,
 
-        [EnumMember(Value = "CEFTA")]
+        /// <summary>
+        /// Central European Free Trade Agreement
+        /// </summary>
+        [EnumMember(Value = "Central European Free Trade Agreement")]
         CEFTA,
 
-        [EnumMember(Value = "NAFTA")]
+        /// <summary>
+        /// North American Free Trade Agreement
+        /// </summary>
+        [EnumMember(Value = "North American Free Trade Agreement")]
         NAFTA,
 
-        [EnumMember(Value = "SAARC")]
+        /// <summary>
+        /// South Asian Association for Regional Cooperation
+        /// </summary>
+        [EnumMember(Value = "South Asian Association for Regional Cooperation")]
         SAARC
     }
 }

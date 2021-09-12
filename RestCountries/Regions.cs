@@ -9,21 +9,39 @@ namespace RestCountries
     [Serializable, JsonConverter(typeof(JsonStringEnumConverter))]
     public enum Region
     {
+        /// <summary>
+        /// Europe
+        /// </summary>
         [EnumMember(Value = "Europe")] //Name as it appears in the JSON file
         Europe, //C# Friendly name
 
+        /// <summary>
+        /// Asia
+        /// </summary>
         [EnumMember(Value = "Asia")]
         Asia,
 
+        /// <summary>
+        /// Africa
+        /// </summary>
         [EnumMember(Value = "Africa")]
         Africa,
 
+        /// <summary>
+        /// Oceania
+        /// </summary>
         [EnumMember(Value = "Oceania")]
         Oceania,
 
+        /// <summary>
+        /// Americas
+        /// </summary>
         [EnumMember(Value = "Americas")]
         Americas,
 
+        /// <summary>
+        /// Polar
+        /// </summary>
         [EnumMember(Value = "Polar")]
         Polar
     }

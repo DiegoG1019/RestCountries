@@ -21,6 +21,18 @@ namespace RestCountries
         [JsonPropertyName("alpha3Code")]
         public string Alpha3Code { get; set; }
 
+        private Country? _countryCode;
+        [JsonIgnore]
+        public Country CountryCode 
+        {
+            get
+            {
+                if (_countryCode is null)
+                    _countryCode = Alpha3Code.GetCountry();
+                return (Country)_countryCode;
+            }
+        }
+
         [JsonPropertyName("callingCodes")]
         public List<string> CallingCodes { get; set; }
 
@@ -40,7 +52,7 @@ namespace RestCountries
             get
             {
                 if (reg__ is null)
-                    reg__ = Enum.Parse<Region>(region__, true);
+                    reg__ = region__.GetRegion();
                 return (Region)reg__;
             }
         }
@@ -115,7 +127,7 @@ namespace RestCountries
                 {
                     bord__ = new List<Country>(borders__.Count);
                     foreach (string c in borders__)
-                        bord__.Add(Enum.Parse<Country>(c, true));
+                        bord__.Add(c.GetCountry());
                 }
                 return bord__;
             }

@@ -21,10 +21,10 @@ namespace RestCountries
             => await Http.GetFromJsonAsync<CountryInfo[]>("/rest/v2/all", ct);
 
         public async Task<ICountryInfo?> GetCountryAsync(Country country, CancellationToken ct = default) 
-            => await Http.GetFromJsonAsync<CountryInfo>($"/rest/v2/alpha/{country}", ct);
+            => await Http.GetFromJsonAsync<CountryInfo>($"/rest/v2/alpha/{country.GetCode()}", ct);
 
         public async Task<IEnumerable<ICountryInfo>?> GetCountriesAsync(CancellationToken ct, Country country, params Country[] countries)
-            => await Http.GetFromJsonAsync<CountryInfo[]>($"/rest/v2/alpha?codes={string.Join(';', countries.Append(country))}", ct);
+            => await Http.GetFromJsonAsync<CountryInfo[]>($"/rest/v2/alpha?codes={string.Join(';', countries.Append(country).Select(x => x.GetCode()))}", ct);
 
         public Task<IEnumerable<ICountryInfo>?> GetCountriesAsync(Country country, params Country[] countries)
             => GetCountriesAsync(default, country, countries);

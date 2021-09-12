@@ -13,6 +13,11 @@ namespace RestCountries
 
         public string Alpha3Code { get; }
 
+        /// <summary>
+        /// Strong-typed Alpha3Code
+        /// </summary>
+        public Country CountryCode { get; }
+
         public IEnumerable<string> CallingCodes { get; }
 
         public string CapitalCity { get; }
