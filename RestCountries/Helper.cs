@@ -15,6 +15,9 @@ namespace RestCountries
         private readonly static Dictionary<SubRegion, string> subRegionToNames = new Dictionary<SubRegion, string>();
         private readonly static Dictionary<string, SubRegion> namesToSubRegion = new Dictionary<string, SubRegion>();
 
+        private readonly static Dictionary<Region, string> regionToNames = new Dictionary<Region, string>();
+        private readonly static Dictionary<string, Region> namesToRegion = new Dictionary<string, Region>();
+
         private readonly static Dictionary<RegionalBloc, string> regionalBlocToNames = new Dictionary<RegionalBloc, string>();
         private readonly static Dictionary<string, RegionalBloc> namesToRegionalBloc = new Dictionary<string, RegionalBloc>();
 
@@ -32,6 +35,17 @@ namespace RestCountries
                     var name = Enum.Parse<SubRegion>(member.Name);
                     subRegionToNames.Add(name, val);
                     namesToSubRegion.Add(val, name);
+                }
+            }
+            {
+                var enumType = typeof(Region);
+                var memberInfos = enumType.GetMembers(BindingFlags.Public | BindingFlags.Static | BindingFlags.GetProperty);
+                foreach (var member in memberInfos)
+                {
+                    string val = ((EnumMemberAttribute)member.GetCustomAttributes(typeof(EnumMemberAttribute), false).First(x => x is EnumMemberAttribute)).Value;
+                    var name = Enum.Parse<Region>(member.Name);
+                    regionToNames.Add(name, val);
+                    namesToRegion.Add(val, name);
                 }
             }
             {
