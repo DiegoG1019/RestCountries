@@ -9,7 +9,7 @@ namespace RestCountries.Test
         static async Task Main(string[] args)
         {
             static void p(object s) => Console.WriteLine(s);
-            var client = new RestCountriesClient();
+            var client = new RestCountriesClient(server: "https://restcountries.com/", apiRoute: "/v2");
 
             var a = await client.GetAllCountriesAsync();
             var b = await client.GetCountriesAsync(Country.UnitedStates, Country.Afghanistan);
