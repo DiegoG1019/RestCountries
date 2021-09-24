@@ -12,9 +12,10 @@ namespace RestCountries
     {
         protected HttpClient Http { get; private set; }
 
-        public RestCountriesClient(string server = "https://restcountries.eu")
+        public RestCountriesClient(string server = "https://restcountries.eu", HttpClientHandler? handler = null)
         {
-            Http = new HttpClient() { BaseAddress = new Uri(server) };
+            Http = handler != null ? new HttpClient(handler) : new HttpClient();
+            Http.BaseAddress = new Uri(server);
         }
 
         public async Task<IEnumerable<ICountryInfo>?> GetAllCountriesAsync(CancellationToken ct = default)
