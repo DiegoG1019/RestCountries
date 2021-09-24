@@ -34,6 +34,18 @@ namespace RestCountries
         Africa,
 
         /// <summary>
+        /// South America
+        /// </summary>
+        [EnumMember(Value = "South America")]
+        SouthAmerica,
+
+        /// <summary>
+        /// North America
+        /// </summary>
+        [EnumMember(Value = "North America")]
+        NorthAmerica,
+
+        /// <summary>
         /// Oceania
         /// </summary>
         [EnumMember(Value = "Oceania")]
