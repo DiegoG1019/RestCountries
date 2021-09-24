@@ -117,8 +117,9 @@ namespace RestCountries
             => region.ToString();
 
         public static Region GetRegion(this string region)
-            => Enum.TryParse<Region>(region, out var vale) ? vale
-                : throw new ArgumentException($"The name {region} doesn't match any known Countries", nameof(region));
+            => namesToRegion.TryGetValue(region, out var val) ? val
+                : Enum.TryParse<Region>(region, out var vale) ? vale
+                : throw new ArgumentException($"The name {region} doesn't match any known Regions", nameof(region));
 
         public static bool TryGetRegion(this string region, out Region result)
             => Enum.TryParse(region, out result);
