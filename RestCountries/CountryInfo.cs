@@ -52,13 +52,13 @@ namespace RestCountries
             get
             {
                 if (reg__ is null)
-                    reg__ = region__.GetRegion();
+                    reg__ = region__?.GetRegion() ?? Region.Unknown;
                 return (Region)reg__;
             }
         }
 
         [JsonPropertyName("region")]
-        public string region__ { get; set; }
+        public string? region__ { get; set; }
 
         private SubRegion? subr__;
         [JsonIgnore]
@@ -67,13 +67,13 @@ namespace RestCountries
             get
             {
                 if (subr__ is null)
-                    subr__ = subregion__.GetSubRegion();
+                    subr__ = subregion__?.GetSubRegion() ?? SubRegion.Unknown;
                 return (SubRegion)subr__;
             } 
         }
 
         [JsonPropertyName("subregion")]
-        public string subregion__ { get; set; }
+        public string? subregion__ { get; set; }
 
         [JsonPropertyName("population")]
         public long Population { get; set; }

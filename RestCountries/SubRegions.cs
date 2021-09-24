@@ -10,6 +10,12 @@ namespace RestCountries
     public enum SubRegion
     {
         /// <summary>
+        /// Unknown
+        /// </summary>
+        [EnumMember(Value = "Unknown")]
+        Unknown,
+
+        /// <summary>
         /// Southern Asia
         /// </summary>
         [EnumMember(Value = "Southern Asia")]

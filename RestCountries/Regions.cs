@@ -10,6 +10,12 @@ namespace RestCountries
     public enum Region
     {
         /// <summary>
+        /// Unknown Region
+        /// </summary>
+        [EnumMember(Value = "Unknown")]
+        Unknown,
+
+        /// <summary>
         /// Europe
         /// </summary>
         [EnumMember(Value = "Europe")] //Name as it appears in the JSON file
